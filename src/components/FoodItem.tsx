@@ -1,5 +1,6 @@
 import { IDRFormatter } from "@/utils";
 import Image from "next/image";
+import { MaterialSymbolsDeleteRounded } from "./Icons/DeleteRounded";
 
 interface QtyCounterProps {
     qty: number;
@@ -24,10 +25,30 @@ const QtyCounter = ({
     }
 
     return (
-        <div>
-            <button onClick={handleDecrease}>{qty === 1 ? "x" : "-"}</button>
+        <div className="rounded-full border border-green-200 py-1 px-1 flex gap-4 items-center">
+            <button
+                onClick={handleDecrease}
+                className={
+                    qty > 1
+                        ? "rounded-full font-bold text-sm w-8 h-8 bg-green-200"
+                        : ""
+                }
+            >
+                {qty > 1 ? (
+                    "-"
+                ) : (
+                    <div className="rounded-full border p-1.5 bg-green-200">
+                        <MaterialSymbolsDeleteRounded className="text-black" />
+                    </div>
+                )}
+            </button>
             <span>{qty}</span>
-            <button onClick={handleIncrease}>+</button>
+            <button
+                onClick={handleIncrease}
+                className="rounded-full font-bold text-sm w-8 h-8 bg-green-200"
+            >
+                +
+            </button>
         </div>
     );
 };

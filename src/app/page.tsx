@@ -5,6 +5,7 @@ import { IDRFormatter } from "@/utils";
 import Link from "next/link";
 import { useCartStore } from "@/store/cartStore";
 import { FoodItem } from "@/components/FoodItem";
+import { MaterialSymbolsShoppingBasket } from "@/components/Icons/Cart";
 
 const CartButton = ({ show }: { show: boolean }) => {
     const { getTotalQty, getTotalPrice } = useCartStore();
@@ -14,10 +15,16 @@ const CartButton = ({ show }: { show: boolean }) => {
     }
 
     return (
-        <div className="fixed bottom-0 p-2 bg-white">
-            <Link href="cart" className="bg-green-200">
-                Cart{" "}
-                {`${getTotalQty()} | ${IDRFormatter.format(getTotalPrice())}`}
+        <div className="fixed bottom-0 p-2 -ml-2 bg-white w-full max-w-[768px] border-t">
+            <Link href="cart">
+                <div className="bg-green-200 p-3 rounded text-gray-800 font-bold w-full text-center flex items-center justify-center gap-3">
+                    <MaterialSymbolsShoppingBasket />
+                    <p>
+                        Cart ·{" "}
+                        <span className="font-normal">{getTotalQty()}</span>
+                        {` · ${IDRFormatter.format(getTotalPrice())}`}
+                    </p>
+                </div>
             </Link>
         </div>
     );
@@ -27,10 +34,13 @@ export default function Home() {
     const { cart, addQty, removeQty } = useCartStore();
 
     return (
-        <div>
+        <div className="pb-20">
             <h1 className="font-bold text-xl mb-6">
                 Juna Restaurant&apos;s Menu
             </h1>
+            <h2 className="font-bold text-lg mb-2">
+                Chef&apos;s Recommendation
+            </h2>
             <section className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {data.map((food) => (
                     <FoodItem
