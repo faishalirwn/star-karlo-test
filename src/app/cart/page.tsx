@@ -98,23 +98,44 @@ export default function Cart() {
                 </p>
             )}
             {cart.size > 0 && (
-                <div className="fixed bottom-0 p-2 -ml-2 bg-white w-full max-w-[768px] border-t">
-                    <div className="flex justify-between pt-3 pb-4">
-                        <p>Total</p>
-                        <p className="font-bold">
-                            {IDRFormatter.format(getTotalPrice()).replace(
-                                /\s/g,
-                                ""
-                            )}
-                        </p>
+                <>
+                    <div className="text-sm flex flex-col gap-2 pt-4 text-gray-600">
+                        <div className="flex justify-between items-center">
+                            <p>Subtotal</p>
+                            <p>
+                                {IDRFormatter.format(getTotalPrice()).replace(
+                                    /\s/g,
+                                    ""
+                                )}
+                            </p>
+                        </div>
+                        <div className="flex justify-between items-center">
+                            <p>Pajak</p>
+                            <p>0</p>
+                        </div>
+                        <div className="flex justify-between items-center">
+                            <p>Diskon</p>
+                            <p>0</p>
+                        </div>
                     </div>
-                    <button
-                        className="bg-green-200 p-3 rounded text-gray-800 font-bold w-full text-center flex items-center justify-center gap-3"
-                        onClick={handleOrder}
-                    >
-                        Order
-                    </button>
-                </div>
+                    <div className="fixed bottom-0 p-2 -ml-2 bg-white w-full max-w-[768px] border-t">
+                        <div className="flex justify-between pt-3 pb-4">
+                            <p>Total</p>
+                            <p className="font-bold">
+                                {IDRFormatter.format(getTotalPrice()).replace(
+                                    /\s/g,
+                                    ""
+                                )}
+                            </p>
+                        </div>
+                        <button
+                            className="bg-green-200 p-3 rounded text-gray-800 font-bold w-full text-center flex items-center justify-center gap-3"
+                            onClick={handleOrder}
+                        >
+                            Order
+                        </button>
+                    </div>
+                </>
             )}
         </div>
     );
