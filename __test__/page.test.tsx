@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 
-describe("Page", () => {
+describe("Home Page", () => {
     it("renders juna's restaurant heading", () => {
         render(<Home />);
 

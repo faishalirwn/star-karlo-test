@@ -65,7 +65,7 @@ export default function Cart() {
                 <Link href="/" className="inline-block flex-1">
                     <MaterialSymbolsArrowBackRounded />
                 </Link>
-                <p>Cart</p>
+                <h1>Cart</h1>
                 <div className="flex-1"></div>
             </header>
             {cart.size > 0 && (
