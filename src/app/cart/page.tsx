@@ -7,6 +7,7 @@ import { FoodItem } from "@/components/FoodItem";
 import { FC } from "react";
 import { IDRFormatter } from "@/utils";
 import { useRouter } from "next/navigation";
+import { MaterialSymbolsArrowBackRounded } from "@/components/Icons/ArrowBack";
 
 const CartItems: FC<{ cart: CartType }> = ({ cart }) => {
     const { addQty, removeQty } = useCartStore();
@@ -22,6 +23,7 @@ const CartItems: FC<{ cart: CartType }> = ({ cart }) => {
                 return (
                     item && (
                         <FoodItem
+                            cart
                             key={item.id}
                             imgSrc={item.picture}
                             name={item.name}
@@ -58,38 +60,61 @@ export default function Cart() {
     };
 
     return (
-        <div>
-            <Link href="/">Back</Link>
+        <div className="relative min-h-screen pb-32">
+            <header className="flex items-center border-b mb-5 py-3 px-3">
+                <Link href="/" className="inline-block flex-1">
+                    <MaterialSymbolsArrowBackRounded />
+                </Link>
+                <p>Cart</p>
+                <div className="flex-1"></div>
+            </header>
             {cart.size > 0 && (
-                <div>
-                    <label htmlFor="table">Table No.</label>
-                    <input
-                        className="border p-1 w-14"
-                        onChange={(e) => {
-                            setTableNumber(parseInt(e.target.value));
-                        }}
-                        value={tableNumber}
-                        id="table"
-                        name="table"
-                        type="number"
-                    />
-                </div>
+                <>
+                    <div className="relative mb-5">
+                        <label
+                            className="absolute text-xs left-3 top-2"
+                            htmlFor="table"
+                        >
+                            Table No.
+                        </label>
+                        <input
+                            className="border pt-5 pb-1.5 px-3 w-20 rounded-2xl"
+                            onChange={(e) => {
+                                setTableNumber(parseInt(e.target.value));
+                            }}
+                            value={tableNumber}
+                            id="table"
+                            name="table"
+                            type="number"
+                        />
+                    </div>
+                    <h2 className="text-lg font-bold mb-2">Order Summary</h2>
+                </>
             )}
             <CartItems cart={cart} />
             {cart.size === 0 && (
-                <p>Add something to the cart to start ordering</p>
+                <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    Add something to the cart to start ordering
+                </p>
             )}
             {cart.size > 0 && (
-                <>
-                    <p>
-                        Total:{" "}
-                        {IDRFormatter.format(getTotalPrice()).replace(
-                            /\s/g,
-                            ""
-                        )}
-                    </p>
-                    <button onClick={handleOrder}>Order</button>
-                </>
+                <div className="fixed bottom-0 p-2 -ml-2 bg-white w-full max-w-[768px] border-t">
+                    <div className="flex justify-between pt-3 pb-4">
+                        <p>Total</p>
+                        <p className="font-bold">
+                            {IDRFormatter.format(getTotalPrice()).replace(
+                                /\s/g,
+                                ""
+                            )}
+                        </p>
+                    </div>
+                    <button
+                        className="bg-green-200 p-3 rounded text-gray-800 font-bold w-full text-center flex items-center justify-center gap-3"
+                        onClick={handleOrder}
+                    >
+                        Order
+                    </button>
+                </div>
             )}
         </div>
     );

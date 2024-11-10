@@ -35,7 +35,7 @@ const QtyCounter = ({
                 }
             >
                 {qty > 1 ? (
-                    "-"
+                    "–"
                 ) : (
                     <div className="rounded-full border p-1.5 bg-green-200">
                         <MaterialSymbolsDeleteRounded className="text-black" />
@@ -74,7 +74,7 @@ export const FoodItem = ({
 }: FoodItemProps) => {
     if (cart) {
         return (
-            <div className=" p-2 flex gap-2">
+            <div className="px-2 py-4 flex gap-2 border-b">
                 <div className="w-[125px] h-[125px]">
                     <Image
                         className="rounded h-full object-cover"

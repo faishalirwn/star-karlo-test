@@ -39,7 +39,7 @@ export default function Home() {
                 Juna Restaurant&apos;s Menu
             </h1>
             <h2 className="font-bold text-lg mb-2">
-                Chef&apos;s Recommendation
+                Chef&apos;s Recommendations
             </h2>
             <section className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {data.map((food) => (
