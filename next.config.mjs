@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "static.promediateknologi.id",
+                hostname: "food-cms.grab.com",
             },
         ],
     },
