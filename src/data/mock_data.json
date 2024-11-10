@@ -2,61 +2,61 @@
     {
         "id": 1,
         "name": "Burger",
-        "price": 18470,
+        "price": 20000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/33/icons/Burgers_585ab6cfd5eb4a3f8e20f61222884637_1547819083514565135.webp"
     },
     {
         "id": 2,
         "name": "Cheeseburger",
-        "price": 41152,
+        "price": 40000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/142/icons/upload-photo-icon_3fb18ebb507c47ee988d3eaa27339521_1549032804931564549.webp"
     },
     {
         "id": 3,
         "name": "Beef Burger",
-        "price": 30805,
+        "price": 30000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/62/icons/FastFood_4710e425c3d24db2aa4280aa207a22d3_1547819143037208832.webp"
     },
     {
         "id": 4,
         "name": "Sate Ayam",
-        "price": 24593,
+        "price": 25000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/150/icons/upload-photo-icon_125d0e1180ef474c9c509a262db56c9d_1549032699920304251.webp"
     },
     {
         "id": 5,
         "name": "Tortellini",
-        "price": 21115,
+        "price": 20000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/151/icons/upload-photo-icon_7af9b7d28d1347849d62774f1751599f_1549032669892550258.webp"
     },
     {
         "id": 6,
         "name": "Coffee",
-        "price": 39941,
+        "price": 40000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/47/icons/Coffee_d1f546eb982e4317b80afd97c76334fd_1547819113631819493.webp"
     },
     {
         "id": 7,
         "name": "Cheesecake",
-        "price": 23620,
+        "price": 25000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/7/icons/upload-photo-icon_02be079bf6b1400eab941f4666b150fb_1549033793390656170.webp"
     },
     {
         "id": 8,
         "name": "Martabak",
-        "price": 36233,
+        "price": 35000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/107/icons/upload-photo-icon_842d517afc774ecaa8efdc853754b381_1549033155992986567.webp"
     },
     {
         "id": 9,
         "name": "Steak",
-        "price": 30337,
+        "price": 30000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/191/icons/upload-photo-icon_74f9c33195ea44e0b17d37937a67181c_1549031946356448552.webp"
     },
     {
         "id": 10,
         "name": "Homemade Pepperoni Pizza",
-        "price": 40162,
+        "price": 40000,
         "picture": "https://food-cms.grab.com/compressed_webp/cuisine/135/icons/Pizza_32aed38d4c1d4dbcb2fe711f0aeb6e15_1547819221409327403.webp"
     }
 ]

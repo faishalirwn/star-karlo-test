@@ -46,12 +46,19 @@ const QtyCounter = ({
     handleIncrease,
 }: QtyCounterProps) => {
     if (qty === 0) {
-        return <button onClick={handleIncrease}>Add</button>;
+        return (
+            <button
+                className="rounded-full font-bold text-sm w-8 h-8 bg-green-200"
+                onClick={handleIncrease}
+            >
+                +
+            </button>
+        );
     }
 
     return (
         <div>
-            <button onClick={handleDecrease}>-</button>
+            <button onClick={handleDecrease}>{qty === 1 ? "x" : "-"}</button>
             <span>{qty}</span>
             <button onClick={handleIncrease}>+</button>
         </div>
@@ -76,7 +83,7 @@ const FoodItem = ({
     handleIncrease,
 }: FoodItemProps) => {
     return (
-        <div className="border p-2 rounded flex gap-2">
+        <div className="border p-4 rounded flex gap-2">
             <div className="w-[125px] h-[125px]">
                 <Image
                     className="rounded h-full object-cover"
@@ -86,16 +93,18 @@ const FoodItem = ({
                     height={200}
                 />
             </div>
-            <div>
+            <div className="flex flex-col justify-between flex-1">
                 <div>
                     <p className="font-bold mb-2">{name}</p>
                     <p>{IDRFormatter.format(price).replace(/\s/g, "")}</p>
                 </div>
-                <QtyCounter
-                    qty={qty}
-                    handleDecrease={handleDecrease}
-                    handleIncrease={handleIncrease}
-                />
+                <div className="flex justify-end">
+                    <QtyCounter
+                        qty={qty}
+                        handleDecrease={handleDecrease}
+                        handleIncrease={handleIncrease}
+                    />
+                </div>
             </div>
         </div>
     );
@@ -103,8 +112,23 @@ const FoodItem = ({
 
 export default function Home() {
     const { cart, addQty, removeQty } = useCartStore();
+    const calculateTotalQty = (): number => {
+        let totalQty = 0;
+        cart.forEach((qty) => {
+            totalQty += qty;
+        });
+        return totalQty;
+    };
+    const calculateTotalPrice = (): number => {
+        let totalPrice = 0;
+        cart.forEach((qty, key) => {
+            const price = data.find((val) => val.id === key)?.price;
+            totalPrice += price ? price * qty : 0;
+        });
+        return totalPrice;
+    };
     return (
-        <main className="p-2">
+        <main className="p-2 relative">
             <h1 className="font-bold text-xl mb-6">Menu</h1>
             <section className="grid grid-cols-2 gap-3">
                 {data.map((food) => (
@@ -123,6 +147,16 @@ export default function Home() {
                     />
                 ))}
             </section>
+            <div className="fixed bottom-0 p-2 bg-white">
+                <button className="bg-green-200">
+                    Cart{" "}
+                    {cart.size === 0
+                        ? ""
+                        : `${calculateTotalQty()} | ${IDRFormatter.format(
+                              calculateTotalPrice()
+                          )}`}
+                </button>
+            </div>
         </main>
     );
 }
